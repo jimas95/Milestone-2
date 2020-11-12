@@ -21,7 +21,6 @@ end = functions.rot_y(angle,1,0,0)
 state2 = [start,end,Tf,N,gripper]
 
 
-
 #pick the object
 start=end
 end = functions.rot_y(angle,1,0,0)
@@ -37,31 +36,21 @@ gripper = 1
 state4 = [start,end,Tf,N,gripper]
 
 
-
-
 #go to dropping location
 start=end
 angle = -math.pi/2
 rotation = functions.rot_z(angle,0,0,0)
-
-
-
 end = np.matmul(rotation,start)
 Tf = 5
 gripper = 1
 state5 = [start,end,Tf,N,gripper]
 
 
-
 #go down
 angle = 3*math.pi/4
 start= end
-
-
 angle = -math.pi/2
 rotation    = functions.trasl(0,0,-0.2)
-
-
 Tf = 1
 gripper = 1
 end = np.matmul(rotation,start)
@@ -77,13 +66,13 @@ state7 = [start,end,Tf,N,gripper]
 start = end
 rotation    = functions.trasl(0,0,0.2)
 end = np.matmul(rotation,start)
-
 state8 = [start,end,Tf,N,gripper]
 
 # go to home position
 tf = 5
 start = end
 end = functions.trasl(0,0,0.5)
-
 state9 = [start,end,Tf,N,gripper]
+
+# add all states to one list
 states = [state1,state2,state3,state4,state5,state6,state7,state8,state9]

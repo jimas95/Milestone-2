@@ -3,11 +3,6 @@ import math
 import numpy as np
 
 
-
-def test():
-    print("Test")
-
-
 def csv(data):
     """
     save data as csv file

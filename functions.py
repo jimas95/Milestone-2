@@ -63,4 +63,31 @@ def generateTraj(states):
     return path
 
 
-    
+def rot_y(angle,x,y,z):
+    mat = np.array( [   [math.cos(angle)    , 0     , math.sin(angle)   , x  ],
+                        [0                  , 1     , 0                 , y  ],
+                        [-math.sin(angle)   , 0     , math.cos(angle)   , z  ],
+                        [0                  , 0     , 0                 , 1  ]])
+
+    return mat
+
+def rot_z(angle,x,y,z):
+    mat =np.array( [[math.cos(angle)    , -math.sin(angle)  , 0   , x  ],
+                    [math.sin(angle)    , math.cos(angle)   , 0   , y  ],
+                    [0                  , 0                 , 1   , z  ],
+                    [0                  , 0                 , 0   , 1  ]])
+
+    return mat
+
+
+
+def trasl(x,y,z):
+
+    mat = np.array( [[1, 0, 0,x ],
+                    [0, 1, 0, y ],
+                    [0, 0, 1, z ],
+                    [0, 0, 0, 1  ]])
+
+    return mat
+
+

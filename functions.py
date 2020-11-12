@@ -27,6 +27,11 @@ def csv(data):
     f.close()
 
 def convertToCsvForm(myList,data,gripper_state):
+    """
+    basicaly converts a 4x4 matrix to a list thats for csv format.
+    data contains a trajectory, N transformations of 4x4 matrix
+    appends myList with the values that we are intrested from the 4x4 matrix, in order to right them as csv
+    """
     for row in data:
         r11 = row[0][0]
         r12 = row[0][1]
@@ -44,6 +49,10 @@ def convertToCsvForm(myList,data,gripper_state):
 
 
 def generateTraj(states):
+    """
+    given states (see states.py)
+    we calculate for each state the path of the trajectory and return the whole trajectory path
+    """
     method = 5
     path = []
     for state in states:
@@ -59,6 +68,9 @@ def generateTraj(states):
 
 
 def rot_y(angle,x,y,z):
+    """
+    return rotation matrix on Y axis
+    """
     mat = np.array( [   [math.cos(angle)    , 0     , math.sin(angle)   , x  ],
                         [0                  , 1     , 0                 , y  ],
                         [-math.sin(angle)   , 0     , math.cos(angle)   , z  ],
@@ -67,6 +79,9 @@ def rot_y(angle,x,y,z):
     return mat
 
 def rot_z(angle,x,y,z):
+    """
+    return rotation matrix on Z axis
+    """
     mat =np.array( [[math.cos(angle)    , -math.sin(angle)  , 0   , x  ],
                     [math.sin(angle)    , math.cos(angle)   , 0   , y  ],
                     [0                  , 0                 , 1   , z  ],
@@ -77,7 +92,9 @@ def rot_z(angle,x,y,z):
 
 
 def trasl(x,y,z):
-
+    """
+    return traslation matrix 
+    """
     mat = np.array( [[1, 0, 0,x ],
                     [0, 1, 0, y ],
                     [0, 0, 1, z ],

@@ -1,7 +1,16 @@
 import math
 import numpy as np
 import functions
-
+"""
+This file contains a list of states for our trajectory.
+states = [state1,state2,...,stateN]
+example of state : state = [start,end,Tf,N,gripper]
+    starting position of eef 4x4 matrix
+    end      position of eef 4x4 matrix
+    Tf       total time of trajectory
+    N        total number of points for the trajectory
+    gripper  on/off 0/1
+"""
 
 
 Tf = 5
